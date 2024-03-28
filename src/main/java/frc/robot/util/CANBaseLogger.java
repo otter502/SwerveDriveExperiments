@@ -43,7 +43,7 @@ public class CANBaseLogger {
 
         pid = motor.getPIDController();
         relativeEncoder = motor.getEncoder();
-        loggingFolder = NetworkTableInstance.getDefault().getTable(kLoggingTabName + NetworkTable.normalizeKey(baseTableLocation, false) + "CANBase:"+motorName);
+        loggingFolder = NetworkTableInstance.getDefault().getTable(kLoggingTabName + NetworkTable.normalizeKey(baseTableLocation, true) + "CANBase:"+motorName);
 
         appliedOuputPub = loggingFolder.getDoubleTopic("appliedOuput").publish();
         outputCurrentPub = loggingFolder.getDoubleTopic("outputCurrent").publish();
