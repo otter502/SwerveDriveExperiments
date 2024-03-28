@@ -49,7 +49,7 @@ public class CANBaseLogger {
         appliedOuputPub = loggingFolder.getDoubleTopic("appliedOuput").publish();
         outputCurrentPub = loggingFolder.getDoubleTopic("outputCurrent").publish();
         relEncoderPosReadingPub = loggingFolder.getDoubleTopic("relEncPosition").publish();
-        relEncoderVelReadingPub = loggingFolder.getDoubleTopic("relEncCurrent").publish();
+        relEncoderVelReadingPub = loggingFolder.getDoubleTopic("relEncVelocity").publish();
         pidConstantsPub = loggingFolder.getDoubleArrayTopic("pidConstants").publish();
         iZoneReadingPub = loggingFolder.getDoubleTopic("iZoneReading").publish();
         motorFaultsPubBinary = loggingFolder.getBooleanArrayTopic("motorFaultsBinary").publish();
