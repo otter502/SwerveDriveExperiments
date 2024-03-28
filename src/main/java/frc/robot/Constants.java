@@ -97,7 +97,7 @@ public class Constants {
                 String loggingName) {}
     }
 
-    public static final class AdvScopeLogging {
+    public static final class LoggingConstants {
         public static final String kLoggingTabName = "Logging";
         public static final String kSwerveTab = "Swerve"; //Logging/Swerve
 

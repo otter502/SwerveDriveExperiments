@@ -29,7 +29,7 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.driveCommands.TeleopDriveCommand;
 
 import static frc.robot.Constants.Drive.*;
-import static frc.robot.Constants.AdvScopeLogging.*;
+import static frc.robot.Constants.LoggingConstants.*;
 
 
 public class SwerveDrive extends SubsystemBase{

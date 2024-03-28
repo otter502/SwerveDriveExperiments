@@ -19,9 +19,12 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.RobotBase;
 import frc.robot.Robot;
 import frc.robot.Constants.Drive.ModuleConstants;
+import frc.robot.util.CANBaseLogger;
 
 import static frc.robot.Constants.Drive.Modules.*;
 import static frc.robot.Constants.Drive.*;
+import static frc.robot.Constants.LoggingConstants.*;
+
 
 
 
@@ -67,7 +70,11 @@ public class SwerveModule {
 
         mDrivePID = mDriveMotor.getPIDController();
         mAnglePID = mAngleMotor.getPIDController();
+
+        new CANBaseLogger(mAngleMotor, kSwerveTab+"/"+loggingName, "AngleMotor");
+        new CANBaseLogger(mDriveMotor, kSwerveTab+"/"+loggingName, "DriveMotor");
         
+
         mDriveEncoder = (SparkRelativeEncoder) mDriveMotor.getEncoder();
 
         position = new Translation2d(x, y);

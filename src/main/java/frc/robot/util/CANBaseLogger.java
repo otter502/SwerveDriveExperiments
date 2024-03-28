@@ -14,7 +14,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.StringPublisher;
 
-import static frc.robot.Constants.AdvScopeLogging.kLoggingTabName;
+import static frc.robot.Constants.LoggingConstants.kLoggingTabName;
 
 public class CANBaseLogger {
     private final boolean VERBOSE_LOGGING = true;
