@@ -10,6 +10,7 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.networktables.BooleanArrayPublisher;
 import edu.wpi.first.networktables.DoubleArrayPublisher;
 import edu.wpi.first.networktables.DoublePublisher;
+import edu.wpi.first.networktables.IntegerPublisher;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.StringPublisher;
@@ -51,7 +52,8 @@ public class CANBaseLogger {
         relEncoderVelReadingPub = loggingFolder.getDoubleTopic("relEncCurrent").publish();
         pidConstantsPub = loggingFolder.getDoubleArrayTopic("pidConstants").publish();
         iZoneReadingPub = loggingFolder.getDoubleTopic("iZoneReading").publish();
-        motorFaultsPub = loggingFolder.getBooleanArrayTopic("motorFaults").publish();
+        motorFaultsPubBinary = loggingFolder.getBooleanArrayTopic("motorFaultsBinary").publish();
+        motorFaultsPubShort = loggingFolder.getIntegerTopic("motorFaultsInteger").publish();
         lastWarningPub = loggingFolder.getStringTopic("lastError").publish();
         motorTempraturePub = loggingFolder.getDoubleTopic("motorTemp").publish();
 
@@ -64,7 +66,8 @@ public class CANBaseLogger {
     DoublePublisher relEncoderVelReadingPub;
     DoubleArrayPublisher pidConstantsPub;
     DoublePublisher iZoneReadingPub;
-    BooleanArrayPublisher motorFaultsPub;
+    BooleanArrayPublisher motorFaultsPubBinary;
+    IntegerPublisher motorFaultsPubShort;
     StringPublisher lastWarningPub;
     DoublePublisher motorTempraturePub;
 
@@ -91,7 +94,8 @@ public class CANBaseLogger {
         lastWarningPub.accept(motor.getLastError().name());
         motorTempraturePub.accept(motor.getMotorTemperature());
         short faults = motor.getFaults();
-        motorFaultsPub.accept(new boolean[]{
+        motorFaultsPubShort.accept(faults);
+        motorFaultsPubBinary.accept(new boolean[]{
             ((faults & 1 << 0) == 1),
             ((faults & 1 << 1) == 1),
             ((faults & 1 << 2) == 1),
