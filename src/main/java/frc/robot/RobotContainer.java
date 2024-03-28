@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.subsystems.tempSubsystem;
 import frc.robot.subsystems.swerve.SwerveDrive;
 import frc.robot.subsystems.swerve.SwerveSim;
 import frc.robot.util.CANBaseLogger;
@@ -25,8 +26,8 @@ public class RobotContainer {
         return mOperatorController;
     }
 
-    private final SwerveDrive mSwerveDrive = SwerveDrive.getInstance(); 
-
+    // private final SwerveDrive mSwerveDrive = SwerveDrive.getInstance(); 
+    private final tempSubsystem testing = new tempSubsystem();
     public static Pose2d getStartingPose(){
         return new Pose2d();
     }
