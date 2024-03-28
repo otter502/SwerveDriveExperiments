@@ -93,7 +93,7 @@ public class CANBaseLogger {
 
         lastWarningPub.accept(motor.getLastError().name());
         motorTempraturePub.accept(motor.getMotorTemperature());
-        short faults = motor.getFaults();
+        short faults = motor.getStickyFaults();
         motorFaultsPubShort.accept(faults);
         motorFaultsPubBinary.accept(new boolean[]{
             ((faults & 1 << 0) == 1),
