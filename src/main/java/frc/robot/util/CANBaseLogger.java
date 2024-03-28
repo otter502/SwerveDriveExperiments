@@ -19,7 +19,7 @@ import static frc.robot.Constants.LoggingConstants.kLoggingTabName;
 public class CANBaseLogger {
     private final boolean VERBOSE_LOGGING = true;
 
-    public static ArrayList<CANBaseLogger> loggers;
+    public static ArrayList<CANBaseLogger> loggers = new ArrayList<>();
 
     private CANSparkBase motor;
     private RelativeEncoder relativeEncoder;
