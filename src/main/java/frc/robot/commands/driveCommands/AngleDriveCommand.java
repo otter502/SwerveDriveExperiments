@@ -15,10 +15,16 @@ public class AngleDriveCommand extends Command{
     private static final PIDConstants kAnglePIDConstants = new PIDConstants(9.0, 0, 0);
     private PIDController mAnglePID = new PIDController(kAnglePIDConstants.p(), kAnglePIDConstants.i(), kAnglePIDConstants.d());
 
-    private SwerveDrive mDriveBase = SwerveDrive.getInstance();
+    private SwerveDrive mDriveBase;
 
     public AngleDriveCommand() {
         super();
+        mDriveBase = SwerveDrive.getInstance();
+    }
+    
+    public AngleDriveCommand(SwerveDrive mDriveBase) {
+        super();
+        this.mDriveBase = mDriveBase;
     }
 
     protected void drive(double vxMetersPerSecond, double vyMetersPerSecond, Rotation2d desiredAngle){
